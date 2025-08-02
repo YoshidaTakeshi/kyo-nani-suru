@@ -35,3 +35,6 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+node_modules/
+.expo/
+firebaseConfig.ts # 秘密情報を除外（分けている場合）

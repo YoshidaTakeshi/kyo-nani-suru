@@ -17,5 +17,9 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
-  "private": true
+  "private": true,
+  "volta": {
+    "node": "20.12.2",
+    "npm": "11.5.2"
+  }
 }
