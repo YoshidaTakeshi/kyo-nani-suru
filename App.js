@@ -6,7 +6,6 @@ import { signInAnonymously } from 'firebase/auth';
 import { auth } from './src/firebase';
 import HomeScreen from './src/screens/HomeScreen';
 import PlanSuggestionScreen from './src/screens/PlanSuggestionScreen';
-import { addSamplePlans } from './src/services/sampleData';
 
 const Stack = createStackNavigator();
 
@@ -15,8 +14,6 @@ export default function App() {
     signInAnonymously(auth)
       .then(userCredential => {
         console.log('サインイン成功:', userCredential.user.uid);
-        // Add sample data (only for development/testing)
-        addSamplePlans().catch(console.error);
       })
       .catch(error => {
         console.error('サインイン失敗:', error);
