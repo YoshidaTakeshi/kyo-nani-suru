@@ -32,7 +32,7 @@
     "localeOverride": "ja",
     "languagePreference": "ja"
   },
-  
+
   // エディター設定（日本語対応）
   "editor.suggest.localityBonus": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -42,12 +42,12 @@
     "comments": true,
     "strings": true
   },
-  
+
   // TypeScript/JavaScript 設定
   "typescript.suggest.completeFunctionCalls": true,
   "javascript.suggest.completeFunctionCalls": true,
-  
+
   // コメント設定
   "editor.comments.insertSpace": true,
-  "files.defaultLanguage": "javascript",
+  "files.defaultLanguage": "javascript"
 }

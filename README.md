@@ -32,7 +32,7 @@ npm start
 
 # プラットフォーム別の起動コマンド
 npm run android  # Android向け
-npm run ios      # iOS向け  
+npm run ios      # iOS向け
 npm run web      # Web向け
 ```
 
