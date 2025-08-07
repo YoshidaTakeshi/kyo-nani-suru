@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 基本ルール: 認証済みユーザー（匿名ユーザーを含む）のみアクセス可
+    // 未認証ユーザーからの書き込み・読み出しを防ぐ
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // 特定のコレクションに対するより詳細なルールを追加する場合はここに記述
+    // 例: ユーザー専用データへのアクセス制限
+    // match /users/{userId} {
+    //   allow read, write: if request.auth != null && request.auth.uid == userId;
+    // }
+  }
+}
