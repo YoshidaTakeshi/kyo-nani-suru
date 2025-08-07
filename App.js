@@ -1,8 +1,13 @@
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { signInAnonymously } from 'firebase/auth';
 import { auth } from './src/firebase';
+import HomeScreen from './src/screens/HomeScreen';
+import LogDetailScreen from './src/screens/LogDetailScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   useEffect(() => {
@@ -16,18 +21,31 @@ export default function App() {
   }, []);
   
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#007AFF',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      >
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{ title: '今何する？' }}
+        />
+        <Stack.Screen 
+          name="LogDetail" 
+          component={LogDetailScreen} 
+          options={{ title: '実行履歴詳細' }}
+        />
+      </Stack.Navigator>
+      <StatusBar style="light" />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
