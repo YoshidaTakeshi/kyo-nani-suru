@@ -1,5 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import { signInAnonymously } from 'firebase/auth';
+import { auth } from './src/firebase';
 
 export default function App() {
   useEffect(() => {
