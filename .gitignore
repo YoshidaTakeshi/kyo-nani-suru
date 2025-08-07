@@ -38,3 +38,9 @@ yarn-error.*
 node_modules/
 .expo/
 firebaseConfig.ts # 秘密情報を除外（分けている場合）
+
+# Demo files (temporary)
+App-demo.js
+screens/LogCreateScreen-demo.tsx
+scripts/
+build-test/
