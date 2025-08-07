@@ -19,7 +19,7 @@ export default function App() {
         console.error('サインイン失敗:', error);
       });
   }, []);
-  
+
   return (
     <View style={styles.container}>
       <Text>今日なにする？</Text>
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',      // 水平方向の中央揃え
-    justifyContent: 'center',   // 垂直方向の中央揃え
+    alignItems: 'center', // 水平方向の中央揃え
+    justifyContent: 'center', // 垂直方向の中央揃え
   },
 });
