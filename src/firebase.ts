@@ -1,16 +1,16 @@
 /**
  * Firebase設定ファイル
- * 
+ *
  * このファイルはFirebaseの初期化と設定を行います。
  * 認証、データベース、ストレージ、アナリティクスの各サービスを初期化し、
  * アプリケーション全体で使用できるようエクスポートします。
  */
 
 // Firebase SDKから必要な関数をインポート
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+import { getAuth } from 'firebase/auth';
 
 // Firebase設定オブジェクト
 // プロジェクト固有の設定値を含む
@@ -28,6 +28,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // 各Firebaseサービスのインスタンスをエクスポート
-export const auth = getAuth(app);           // 認証サービス
-export const db = getFirestore(app);        // Firestoreデータベース
-export const storage = getStorage(app);     // Cloud Storage
+export const auth = getAuth(app); // 認証サービス
+export const db = getFirestore(app); // Firestoreデータベース
+export const storage = getStorage(app); // Cloud Storage
