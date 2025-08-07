@@ -50,7 +50,4 @@
   // コメント設定
   "editor.comments.insertSpace": true,
   "files.defaultLanguage": "javascript",
-  
-  // 日本語フォント設定（オプション）
-  "editor.fontFamily": "'Consolas', 'Courier New', 'Yu Gothic', 'Hiragino Sans', monospace"
 }
