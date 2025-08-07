@@ -1,4 +1,4 @@
-# Cursor Composer 日本語設定
+# 「今日なにする？」アプリ - Cursor Composer 日本語設定
 
 ## 基本設定
 composer.language=ja

@@ -1,6 +1,6 @@
 {
   "name": "kyo-nani-suru-japanese-dev",
-  "description": "今日何する？プロジェクトの日本語開発環境設定",
+  "description": "今日なにする？プロジェクトの日本語開発環境設定",
   "language": "ja",
   "ai": {
     "enabled": true,
