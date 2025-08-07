@@ -1,6 +1,6 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# dependencies
+# 依存関係
 node_modules/
 
 # Expo
@@ -21,7 +21,7 @@ expo-env.d.ts
 # Metro
 .metro-health-check*
 
-# debug
+# デバッグ
 npm-debug.*
 yarn-debug.*
 yarn-error.*
@@ -30,11 +30,11 @@ yarn-error.*
 .DS_Store
 *.pem
 
-# local env files
+# ローカル環境ファイル
 .env*.local
 
-# typescript
+# TypeScript
 *.tsbuildinfo
-node_modules/
-.expo/
-firebaseConfig.ts # 秘密情報を除外（分けている場合）
+
+# Firebase設定（秘密情報を除外する場合）
+# firebaseConfig.ts
