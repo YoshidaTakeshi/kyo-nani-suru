@@ -1,15 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect } from 'react';
-import { auth } from './src/firebase';
 import { signInAnonymously } from 'firebase/auth';
+import { auth } from './src/firebase';
 
 /**
  * メインアプリケーションコンポーネント
- * Firebaseの匿名認証を実行し、基本的なUIを表示する
+ * Firebase認証を使用した匿名ログインを実装
  */
 export default function App() {
-  // Firebaseの匿名認証を実行するEffect
+  // コンポーネントマウント時にFirebase匿名認証を実行
   useEffect(() => {
     signInAnonymously(auth)
       .then(userCredential => {
@@ -22,21 +22,21 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Text>今日何する？アプリを開発中です！</Text>
+      <Text>今日なにする？</Text>
       <StatusBar style="auto" />
     </View>
   );
 }
 
 /**
- * アプリケーションのスタイル定義
- * メインコンテナの中央配置レイアウトを定義
+ * スタイル定義
+ * メインコンテナのレイアウトとデザインを設定
  */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center',      // 水平方向の中央揃え
+    justifyContent: 'center',   // 垂直方向の中央揃え
   },
 });

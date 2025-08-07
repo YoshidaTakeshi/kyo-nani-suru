@@ -1,8 +1,12 @@
+/**
+ * アプリケーションエントリーポイント
+ * 
+ * ExpoのregisterRootComponentを使用してメインAppコンポーネントを登録します。
+ * このファイルにより、Expo Goまたはネイティブビルドのいずれでアプリを
+ * 読み込んでも、適切な環境が設定されます。
+ */
 import { registerRootComponent } from 'expo';
-
 import App from './App';
 
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
+// メインAppコンポーネントをルートコンポーネントとして登録
 registerRootComponent(App);
