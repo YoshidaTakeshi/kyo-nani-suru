@@ -1,5 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import { signInAnonymously } from 'firebase/auth';
+import { auth } from './src/firebase';
 
 export default function App() {
   useEffect(() => {
@@ -11,7 +14,7 @@ export default function App() {
         console.error('サインイン失敗:', error);
       });
   }, []);
-  
+
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
