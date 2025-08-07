@@ -34,6 +34,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'react-native/no-inline-styles': 'warn',
     'react-native/split-platform-components': 'off',
+    'eol-last': ['error', 'always'], // Enforce newline at end of files
   },
   settings: {
     react: {
