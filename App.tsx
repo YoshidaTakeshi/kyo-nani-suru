@@ -4,12 +4,21 @@ import { useEffect, useState } from 'react';
 import { signInAnonymously } from 'firebase/auth';
 import { auth } from './src/firebase';
 import LogListScreen from './src/screens/LogListScreen';
+import TestApp from './src/components/TestApp';
 import { Log } from './src/types/Log';
+
+// Set to true to test with mock data
+const USE_TEST_MODE = true;
 
 export default function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
+    if (USE_TEST_MODE) {
+      setIsSignedIn(true);
+      return;
+    }
+
     signInAnonymously(auth)
       .then(userCredential => {
         console.log('サインイン成功:', userCredential.user.uid);
@@ -29,7 +38,18 @@ export default function App() {
   if (!isSignedIn) {
     return (
       <SafeAreaView style={styles.container}>
-        <Text>サインイン中...</Text>
+        <View style={styles.centerContainer}>
+          <Text>サインイン中...</Text>
+        </View>
+        <StatusBar style="auto" />
+      </SafeAreaView>
+    );
+  }
+
+  if (USE_TEST_MODE) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <TestApp />
         <StatusBar style="auto" />
       </SafeAreaView>
     );
@@ -50,6 +70,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  centerContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     backgroundColor: '#ffffff',
