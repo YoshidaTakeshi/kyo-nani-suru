@@ -1,14 +1,19 @@
-// Import the functions you need from the SDKs you need
+/**
+ * Firebase設定ファイル
+ * Firebaseの初期化とサービスのエクスポートを行う
+ */
+
+// Firebase SDKから必要な関数をインポート
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+/**
+ * Firebase設定オブジェクト
+ * プロジェクト固有の認証情報と設定を含む
+ */
 const firebaseConfig = {
   apiKey: "AIzaSyB8pk56rzDmHEt3m4O4ooSGTtJfn9Gvv3s",
   authDomain: "kyo-nani-suru.firebaseapp.com",
@@ -19,9 +24,13 @@ const firebaseConfig = {
   measurementId: "G-WHTX61ST3J"
 };
 
-// Initialize Firebase
+// Firebaseアプリを初期化
 const app = initializeApp(firebaseConfig);
+
+// Analyticsを初期化（ウェブ環境でのみ使用）
 const analytics = getAnalytics(app);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+
+// 各Firebaseサービスを初期化してエクスポート
+export const auth = getAuth(app);        // 認証サービス
+export const db = getFirestore(app);     // Firestoreデータベース
+export const storage = getStorage(app);  // Cloud Storage
