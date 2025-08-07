@@ -6,6 +6,7 @@ import { signInAnonymously } from 'firebase/auth';
 import { auth } from './src/firebase';
 import HomeScreen from './src/screens/HomeScreen';
 import LogDetailScreen from './src/screens/LogDetailScreen';
+import MockLogDetailScreen from './src/screens/MockLogDetailScreen';
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,11 @@ export default function App() {
           name="LogDetail" 
           component={LogDetailScreen} 
           options={{ title: '実行履歴詳細' }}
+        />
+        <Stack.Screen 
+          name="MockLogDetail" 
+          component={MockLogDetailScreen} 
+          options={{ title: '実行履歴詳細 (サンプル)' }}
         />
       </Stack.Navigator>
       <StatusBar style="light" />

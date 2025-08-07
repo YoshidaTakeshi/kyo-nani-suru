@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { createSampleData } from '../utils/sampleData';
 
 interface Props {
   navigation: any;
 }
 
 const HomeScreen: React.FC<Props> = ({ navigation }) => {
-  const navigateToLogDetail = async () => {
-    // Create sample data first
-    await createSampleData();
-    // Navigate to log detail with sample ID
+  const navigateToLogDetail = () => {
     navigation.navigate('LogDetail', { logId: 'sample-log-id' });
+  };
+
+  const navigateToMockLogDetail = () => {
+    navigation.navigate('MockLogDetail');
   };
 
   return (
@@ -21,6 +21,10 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
       
       <TouchableOpacity style={styles.button} onPress={navigateToLogDetail}>
         <Text style={styles.buttonText}>サンプル履歴を見る</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity style={[styles.button, styles.mockButton]} onPress={navigateToMockLogDetail}>
+        <Text style={styles.buttonText}>モック履歴を見る</Text>
       </TouchableOpacity>
     </View>
   );
@@ -55,6 +59,10 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+    marginBottom: 15,
+  },
+  mockButton: {
+    backgroundColor: '#34C759',
   },
   buttonText: {
     color: '#fff',
