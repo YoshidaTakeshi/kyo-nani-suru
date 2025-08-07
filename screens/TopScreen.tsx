@@ -1,11 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-
-type RootStackParamList = {
-  Top: undefined;
-  Next: undefined; // Placeholder for next screen
-};
+import { RootStackParamList } from '../types/navigation';
 
 type TopScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Top'>;
 
@@ -23,7 +19,11 @@ export default function TopScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>今日なにする？</Text>
-      <Pressable style={styles.startButton} onPress={handleStart}>
+      <Pressable 
+        style={styles.startButton} 
+        onPress={handleStart}
+        testID="start-button"
+      >
         <Text style={styles.startButtonText}>はじめる</Text>
       </Pressable>
     </View>

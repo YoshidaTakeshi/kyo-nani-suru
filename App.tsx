@@ -6,11 +6,7 @@ import { signInAnonymously } from 'firebase/auth';
 import { auth } from './src/firebase';
 import TopScreen from './screens/TopScreen';
 import NextScreen from './screens/NextScreen';
-
-export type RootStackParamList = {
-  Top: undefined;
-  Next: undefined;
-};
+import { RootStackParamList } from './types/navigation';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
