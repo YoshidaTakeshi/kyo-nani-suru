@@ -22,7 +22,7 @@ export default function App() {
   
   return (
     <View style={styles.container}>
-      <Text>今日何をしますか？</Text>
+      <Text>今日なにする？</Text>
       <StatusBar style="auto" />
     </View>
   );
