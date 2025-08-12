@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, Pressable } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../types/navigation';
-import { topScreenStyles } from '../styles/screens/TopScreen.styles';
+import { RootStackParamList } from '../../types/navigation';
+import { topScreenStyles } from './index.styles';
 
 type TopScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Top'>;
 

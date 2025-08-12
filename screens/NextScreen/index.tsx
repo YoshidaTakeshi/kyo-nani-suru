@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { nextScreenStyles } from '../styles/screens/NextScreen.styles';
+import { nextScreenStyles } from './index.styles';
 
 export default function NextScreen() {
   return (
