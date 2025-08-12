@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-export const topScreenStyles = StyleSheet.create({
+export const planSuggestionScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -9,23 +9,42 @@ export const topScreenStyles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
+    marginBottom: 10,
     color: '#333',
-    marginBottom: 20,
     textAlign: 'center',
   },
   subtitle: {
     fontSize: 16,
     color: '#666',
-    marginBottom: 40,
+    marginBottom: 30,
     textAlign: 'center',
   },
-  startButton: {
-    backgroundColor: '#007AFF',
-    paddingHorizontal: 40,
+  planContainer: {
+    backgroundColor: '#f8f9fa',
+    padding: 20,
+    borderRadius: 10,
+    marginBottom: 40,
+    width: '100%',
+  },
+  planText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#333',
+    marginBottom: 10,
+  },
+  planDescription: {
+    fontSize: 16,
+    color: '#555',
+    lineHeight: 24,
+  },
+  button: {
+    backgroundColor: '#6c757d',
+    paddingHorizontal: 30,
     paddingVertical: 15,
     borderRadius: 25,
+    elevation: 3,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -33,9 +52,8 @@ export const topScreenStyles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
   },
-  startButtonText: {
+  buttonText: {
     color: '#fff',
     fontSize: 18,
     fontWeight: '600',
