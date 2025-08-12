@@ -1,59 +1,59 @@
-# Plans Collection Implementation
+# プランコレクション実装
 
-This implementation provides functionality to manage and retrieve random plans from a Firestore collection.
+このプロジェクトはFirestoreコレクションからランダムなプランを管理・取得する機能を提供します。
 
-## Files Created
+## 作成されたファイル
 
 ### `lib/plan.ts`
-- Defines the `Plan` interface with required fields: id, title, category, level, estimatedTime
-- Implements `fetchRandomPlan()` function that retrieves a random plan from Firestore
-- Includes comprehensive error handling
+- 必要なフィールドを持つ`Plan`インターフェースを定義: id, title, category, level, estimatedTime
+- Firestoreからランダムなプランを取得する`fetchRandomPlan()`関数を実装
+- 包括的なエラーハンドリングを含む
 
 ### `lib/seedPlans.ts`
-- Contains sample data with 10 diverse plans across multiple categories
-- Implements `seedPlansCollection()` function to populate the Firestore collection
-- Plans include various activities like exercise, learning, lifestyle, entertainment, etc.
+- 複数のカテゴリにわたる10個の多様なプランのサンプルデータを含む
+- Firestoreコレクションを初期化する`seedPlansCollection()`関数を実装
+- 運動、学習、生活、娯楽、社交、趣味などの様々な活動を含むプラン
 
-## Usage
+## 使用方法
 
-### Seeding the Collection
+### コレクションの初期化
 ```typescript
 import { seedPlansCollection } from './lib/seedPlans';
 
-// Call once to populate the collection with sample data
+// サンプルデータでコレクションを初期化するために一度実行
 await seedPlansCollection();
 ```
 
-### Fetching a Random Plan
+### ランダムプランの取得
 ```typescript
 import { fetchRandomPlan } from './lib/plan';
 
-// Get a random plan
+// ランダムなプランを取得
 const plan = await fetchRandomPlan();
 if (plan) {
-  console.log(`Today's activity: ${plan.title}`);
-  console.log(`Category: ${plan.category}, Level: ${plan.level}, Time: ${plan.estimatedTime} minutes`);
+  console.log(`今日の活動: ${plan.title}`);
+  console.log(`カテゴリ: ${plan.category}, レベル: ${plan.level}, 時間: ${plan.estimatedTime}分`);
 } else {
-  console.log('No plans available - seed the collection first');
+  console.log('利用可能なプランがありません - 最初にコレクションを初期化してください');
 }
 ```
 
-## Data Structure
+## データ構造
 
-Each plan contains:
-- `id`: Unique identifier (string)
-- `title`: Activity name (string)
-- `category`: Type of activity (運動, 学習, 生活, 娯楽, 社交, 趣味)
-- `level`: Difficulty level (1-3, where 1 is easiest)
-- `estimatedTime`: Expected duration in minutes (number)
+各プランには以下が含まれます：
+- `id`: 一意の識別子（文字列）
+- `title`: 活動名（文字列）
+- `category`: 活動の種類（運動、学習、生活、娯楽、社交、趣味）
+- `level`: 難易度レベル（1-3、1が最も簡単）
+- `estimatedTime`: 予想所要時間（分単位の数値）
 
-## Error Handling
+## エラーハンドリング
 
-Both functions include proper error handling:
-- `fetchRandomPlan()` returns null if no plans exist and throws errors for Firestore issues
-- `seedPlansCollection()` throws descriptive errors if seeding fails
-- All errors are logged to console for debugging
+両方の関数には適切なエラーハンドリングが含まれています：
+- `fetchRandomPlan()`はプランが存在しない場合にnullを返し、Firestoreの問題に対してはエラーをthrowします
+- `seedPlansCollection()`は初期化に失敗した場合に詳細なエラーをthrowします
+- すべてのエラーはデバッグ用にコンソールに記録されます
 
-## Firebase Requirements
+## Firebase要件
 
-Make sure your Firestore security rules allow read/write access to the `plans` collection based on your authentication setup.
+認証設定に基づいて、Firestoreセキュリティルールが`plans`コレクションへの読み書きアクセスを許可していることを確認してください。

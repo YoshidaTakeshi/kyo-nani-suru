@@ -3,7 +3,7 @@ import { db } from '../src/firebase';
 import { Plan } from './plan';
 
 /**
- * Sample plans data to seed the Firestore collection
+ * Firestoreコレクションに初期データとして追加するサンプルプランデータ
  */
 const samplePlans: Omit<Plan, 'id'>[] = [
   {
@@ -69,23 +69,28 @@ const samplePlans: Omit<Plan, 'id'>[] = [
 ];
 
 /**
- * Seeds the Firestore plans collection with sample data
- * This function should be called once to populate the collection
+ * Firestoreのプランコレクションにサンプルデータを追加する関数
+ * コレクションを初期化するために一度だけ実行する必要がある
+ * @returns Promise<void>
  */
 export async function seedPlansCollection(): Promise<void> {
   try {
     const plansCollection = collection(db, 'plans');
-    
-    console.log('Starting to seed plans collection...');
-    
+
+    console.log('プランコレクションの初期化を開始します...');
+
     for (const plan of samplePlans) {
       await addDoc(plansCollection, plan);
-      console.log(`Added plan: ${plan.title}`);
+      console.log(`プランを追加しました: ${plan.title}`);
     }
-    
-    console.log(`Successfully seeded ${samplePlans.length} plans to Firestore`);
+
+    console.log(
+      `${samplePlans.length}件のプランをFirestoreに正常に追加しました`
+    );
   } catch (error) {
-    console.error('Error seeding plans collection:', error);
-    throw new Error(`Failed to seed plans collection: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    console.error('プランコレクション初期化エラー:', error);
+    throw new Error(
+      `プランコレクションの初期化に失敗しました: ${error instanceof Error ? error.message : '不明なエラー'}`
+    );
   }
 }

@@ -2,38 +2,38 @@ import { collection, getDocs, query } from 'firebase/firestore';
 import { db } from '../src/firebase';
 
 /**
- * Plan data structure for the plans collection
+ * プランコレクション用のデータ構造
  */
 export interface Plan {
   id: string;
   title: string;
   category: string;
   level: number;
-  estimatedTime: number; // in minutes
+  estimatedTime: number; // 分単位の所要時間
 }
 
 /**
- * Fetches a random plan from the Firestore plans collection
- * @returns Promise<Plan | null> - Returns a random plan or null if no plans exist
+ * Firestoreのプランコレクションからランダムにプランを取得する関数
+ * @returns Promise<Plan | null> - ランダムなプランまたはプランが存在しない場合はnull
  */
 export async function fetchRandomPlan(): Promise<Plan | null> {
   try {
-    // Get reference to plans collection
+    // プランコレクションの参照を取得
     const plansCollection = collection(db, 'plans');
     const plansQuery = query(plansCollection);
-    
-    // Fetch all plans from Firestore
+
+    // Firestoreからすべてのプランを取得
     const querySnapshot = await getDocs(plansQuery);
-    
-    // Check if any plans exist
+
+    // プランが存在するかチェック
     if (querySnapshot.empty) {
-      console.warn('No plans found in the collection');
+      console.warn('コレクションにプランが見つかりません');
       return null;
     }
-    
-    // Convert documents to Plan objects
+
+    // ドキュメントをPlanオブジェクトに変換
     const plans: Plan[] = [];
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach(doc => {
       const data = doc.data();
       plans.push({
         id: doc.id,
@@ -43,13 +43,14 @@ export async function fetchRandomPlan(): Promise<Plan | null> {
         estimatedTime: data.estimatedTime,
       });
     });
-    
-    // Return a random plan
+
+    // ランダムなプランを返す
     const randomIndex = Math.floor(Math.random() * plans.length);
     return plans[randomIndex];
-    
   } catch (error) {
-    console.error('Error fetching random plan:', error);
-    throw new Error(`Failed to fetch random plan: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    console.error('ランダムプラン取得エラー:', error);
+    throw new Error(
+      `ランダムプランの取得に失敗しました: ${error instanceof Error ? error.message : '不明なエラー'}`
+    );
   }
 }
