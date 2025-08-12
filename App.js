@@ -9,7 +9,12 @@ import PlanSuggestionScreen from './src/screens/PlanSuggestionScreen';
 
 const Stack = createStackNavigator();
 
+/**
+ * メインアプリケーションコンポーネント
+ * Firebase認証を使用した匿名ログインとReact Navigationを実装
+ */
 export default function App() {
+  // コンポーネントマウント時にFirebase匿名認証を実行
   useEffect(() => {
     signInAnonymously(auth)
       .then(userCredential => {
@@ -19,7 +24,7 @@ export default function App() {
         console.error('サインイン失敗:', error);
       });
   }, []);
-  
+
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
@@ -49,5 +54,3 @@ export default function App() {
     </NavigationContainer>
   );
 }
-
-

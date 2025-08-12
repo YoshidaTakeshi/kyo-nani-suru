@@ -1,0 +1,32 @@
+{
+  "name": "kyo-nani-suru-japanese-dev",
+  "description": "今日なにする？プロジェクトの日本語開発環境設定",
+  "language": "ja",
+  "ai": {
+    "enabled": true,
+    "language": "japanese",
+    "responseLanguage": "ja",
+    "codeComments": "japanese",
+    "explainInJapanese": true
+  },
+  "composer": {
+    "language": "ja",
+    "instructionLanguage": "japanese"
+  },
+  "codeGeneration": {
+    "commentLanguage": "ja",
+    "explanationLanguage": "japanese"
+  },
+  "project": {
+    "type": "react-native-expo",
+    "typescript": true,
+    "firebase": true,
+    "developmentLanguage": "japanese"
+  },
+  "prompts": {
+    "systemMessage": "あなたは日本語でReact Native/Expo開発をサポートするAIアシスタントです。",
+    "codeExplanation": "japanese",
+    "errorHandling": "japanese",
+    "documentation": "japanese"
+  }
+}
