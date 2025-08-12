@@ -12,20 +12,21 @@ interface Props {
 
 export default function TopScreen({ navigation }: Props) {
   const handleStart = () => {
-    // Navigate to next screen
-    navigation.navigate('Next');
-    console.log('はじめるボタンが押されました');
+    // Navigate to plan suggestion screen
+    navigation.navigate('PlanSuggestion');
+    console.log('プラン提案ボタンが押されました');
   };
 
   return (
     <View style={topScreenStyles.container}>
       <Text style={topScreenStyles.title}>今日なにする？</Text>
+      <Text style={topScreenStyles.subtitle}>今日のプランを提案します</Text>
       <Pressable
         style={topScreenStyles.startButton}
         onPress={handleStart}
-        testID="start-button"
+        testID="plan-suggestion-button"
       >
-        <Text style={topScreenStyles.startButtonText}>はじめる</Text>
+        <Text style={topScreenStyles.startButtonText}>プラン提案</Text>
       </Pressable>
     </View>
   );

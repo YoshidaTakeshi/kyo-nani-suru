@@ -6,6 +6,7 @@ import { signInAnonymously } from 'firebase/auth';
 import { auth } from './firebase';
 import TopScreen from '../screens/TopScreen';
 import NextScreen from '../screens/NextScreen';
+import PlanSuggestionScreen from '../screens/PlanSuggestionScreen';
 import { RootStackParamList } from '../types/navigation';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -33,6 +34,11 @@ export default function App() {
           name="Next"
           component={NextScreen}
           options={{ title: '次の画面' }}
+        />
+        <Stack.Screen
+          name="PlanSuggestion"
+          component={PlanSuggestionScreen}
+          options={{ title: 'プラン提案' }}
         />
       </Stack.Navigator>
       <StatusBar style="auto" />

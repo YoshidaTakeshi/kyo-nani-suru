@@ -73,30 +73,37 @@ describe('TopScreen', () => {
     expect(getByText('今日なにする？')).toBeTruthy();
   });
 
-  test('renders start button correctly', () => {
+  test('renders plan suggestion button correctly', () => {
     const { getByText } = render(
       React.createElement(TopScreen, { navigation: mockNavigation })
     );
-    expect(getByText('はじめる')).toBeTruthy();
+    expect(getByText('プラン提案')).toBeTruthy();
   });
 
-  test('navigates to Next screen when start button is pressed', () => {
+  test('renders subtitle correctly', () => {
+    const { getByText } = render(
+      React.createElement(TopScreen, { navigation: mockNavigation })
+    );
+    expect(getByText('今日のプランを提案します')).toBeTruthy();
+  });
+
+  test('navigates to PlanSuggestion screen when plan suggestion button is pressed', () => {
     const { getByTestId } = render(
       React.createElement(TopScreen, { navigation: mockNavigation })
     );
-    const startButton = getByTestId('pressable');
-    fireEvent.press(startButton);
-    expect(mockNavigate).toHaveBeenCalledWith('Next');
+    const planButton = getByTestId('pressable');
+    fireEvent.press(planButton);
+    expect(mockNavigate).toHaveBeenCalledWith('PlanSuggestion');
   });
 
-  test('logs message when start button is pressed', () => {
+  test('logs message when plan suggestion button is pressed', () => {
     const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
     const { getByTestId } = render(
       React.createElement(TopScreen, { navigation: mockNavigation })
     );
-    const startButton = getByTestId('pressable');
-    fireEvent.press(startButton);
-    expect(consoleSpy).toHaveBeenCalledWith('はじめるボタンが押されました');
+    const planButton = getByTestId('pressable');
+    fireEvent.press(planButton);
+    expect(consoleSpy).toHaveBeenCalledWith('プラン提案ボタンが押されました');
     consoleSpy.mockRestore();
   });
 });
