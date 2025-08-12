@@ -6,7 +6,7 @@
  * 読み込んでも、適切な環境が設定されます。
  */
 import { registerRootComponent } from 'expo';
-import App from './App';
+import App from './src/App';
 
 // メインAppコンポーネントをルートコンポーネントとして登録
 registerRootComponent(App);
