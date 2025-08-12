@@ -1,0 +1,25 @@
+{
+  "cursor.chat.defaultLanguage": "ja",
+  "cursor.chat.preferredLanguage": "ja",
+  "cursor.ai.responseLanguage": "japanese",
+  "cursor.ai.codeComments": "japanese",
+  "cursor.ai.explainInJapanese": true,
+  "cursor.ai.documentationLanguage": "ja",
+  "cursor.composer.defaultLanguage": "ja",
+  "cursor.composer.instructionLanguage": "japanese",
+  "cursor.codeGeneration.commentLanguage": "ja",
+  "cursor.codeGeneration.variableNaming": "japanese-friendly",
+  "cursor.codeGeneration.functionNaming": "japanese-friendly",
+  "cursor.autocomplete.language": "ja",
+  "cursor.diagnostics.language": "ja",
+  "cursor.git.commitMessageLanguage": "ja",
+  "cursor.ai.systemPrompt": "あなたは日本語でコーディングをサポートするAIアシスタントです。すべての回答、説明、コメントは日本語で行ってください。コードの説明や提案も日本語で提供してください。",
+  "cursor.chat.systemMessage": "日本語でコードの説明や提案を行い、日本語でのプログラミング開発体験を最適化してください。エラーメッセージの説明や解決方法も日本語で説明してください。",
+  "cursor.ai.preferences": {
+    "language": "ja",
+    "responseStyle": "detailed",
+    "codeExplanation": "japanese",
+    "errorExplanation": "japanese",
+    "suggestionsLanguage": "japanese"
+  }
+}
