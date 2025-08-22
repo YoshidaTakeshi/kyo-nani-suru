@@ -17,6 +17,12 @@ export default function TopScreen({ navigation }: Props) {
     console.log('はじめるボタンが押されました');
   };
 
+  const handlePlanSuggestion = () => {
+    // Navigate to plan suggestion screen
+    navigation.navigate('PlanSuggestion');
+    console.log('プラン提案ボタンが押されました');
+  };
+
   return (
     <View style={topScreenStyles.container}>
       <Text style={topScreenStyles.title}>今日なにする？</Text>
@@ -26,6 +32,13 @@ export default function TopScreen({ navigation }: Props) {
         testID="start-button"
       >
         <Text style={topScreenStyles.startButtonText}>はじめる</Text>
+      </Pressable>
+      <Pressable
+        style={topScreenStyles.planButton}
+        onPress={handlePlanSuggestion}
+        testID="plan-suggestion-button"
+      >
+        <Text style={topScreenStyles.planButtonText}>プラン提案</Text>
       </Pressable>
     </View>
   );
