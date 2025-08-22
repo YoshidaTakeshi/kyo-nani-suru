@@ -41,5 +41,13 @@ module.exports = {
       version: 'detect',
     },
   },
+  overrides: [
+    {
+      files: ['**/__tests__/**/*', '**/*.test.*', '**/*.spec.*'],
+      env: {
+        jest: true,
+      },
+    },
+  ],
   ignorePatterns: ['node_modules/', '.expo/', 'dist/', 'build/', '*.config.js'],
 };
