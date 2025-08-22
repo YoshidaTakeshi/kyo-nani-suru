@@ -3,44 +3,26 @@ import { StyleSheet } from 'react-native';
 export const planSuggestionScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
     padding: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: 'bold',
-    marginBottom: 10,
     color: '#333',
+    marginBottom: 20,
     textAlign: 'center',
   },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
-    marginBottom: 30,
-    textAlign: 'center',
-  },
-  planContainer: {
-    backgroundColor: '#f8f9fa',
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 40,
-    width: '100%',
-  },
-  planText: {
+  description: {
     fontSize: 18,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 10,
+    color: '#666',
+    marginBottom: 40,
+    textAlign: 'center',
   },
-  planDescription: {
-    fontSize: 16,
-    color: '#555',
-    lineHeight: 24,
-  },
-  button: {
-    backgroundColor: '#6c757d',
+  backButton: {
+    backgroundColor: '#007bff',
     paddingHorizontal: 30,
     paddingVertical: 15,
     borderRadius: 25,
@@ -53,10 +35,10 @@ export const planSuggestionScreenStyles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
-  buttonText: {
+  backButtonText: {
     color: '#fff',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });

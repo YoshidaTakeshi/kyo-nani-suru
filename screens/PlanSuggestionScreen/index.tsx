@@ -21,27 +21,15 @@ export default function PlanSuggestionScreen({ navigation }: Props) {
   return (
     <View style={planSuggestionScreenStyles.container}>
       <Text style={planSuggestionScreenStyles.title}>プラン提案</Text>
-      <Text style={planSuggestionScreenStyles.subtitle}>
+      <Text style={planSuggestionScreenStyles.description}>
         あなたにおすすめのプランを提案します
       </Text>
-
-      <View style={planSuggestionScreenStyles.planContainer}>
-        <Text style={planSuggestionScreenStyles.planText}>
-          今日のおすすめプラン：
-        </Text>
-        <Text style={planSuggestionScreenStyles.planDescription}>
-          カフェでゆっくり読書をして、
-          {'\n'}
-          その後公園を散歩してみませんか？
-        </Text>
-      </View>
-
       <Pressable
-        style={planSuggestionScreenStyles.button}
+        style={planSuggestionScreenStyles.backButton}
         onPress={handleGoBack}
         testID="back-button"
       >
-        <Text style={planSuggestionScreenStyles.buttonText}>戻る</Text>
+        <Text style={planSuggestionScreenStyles.backButtonText}>戻る</Text>
       </Pressable>
     </View>
   );
