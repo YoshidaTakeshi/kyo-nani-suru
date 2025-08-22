@@ -1,3 +1,7 @@
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react-native';
+import TopScreen from '../screens/TopScreen';
+
 const mockNavigate = jest.fn();
 const mockNavigation = {
   navigate: mockNavigate,
@@ -19,8 +23,8 @@ const mockNavigation = {
 // Mock React Native components for testing
 jest.mock('react-native', () => {
   const RN = jest.requireActual('react-native');
-  RN.Pressable = ({ children, onPress, style, ...props }) => {
-    const React = require('react');
+
+  const MockPressable = ({ children, onPress, style, ...props }) => {
     return React.createElement(
       'div',
       {
@@ -32,8 +36,9 @@ jest.mock('react-native', () => {
       children
     );
   };
-  RN.Text = ({ children, style, ...props }) => {
-    const React = require('react');
+  MockPressable.displayName = 'MockPressable';
+
+  const MockText = ({ children, style, ...props }) => {
     return React.createElement(
       'span',
       {
@@ -43,8 +48,9 @@ jest.mock('react-native', () => {
       children
     );
   };
-  RN.View = ({ children, style, ...props }) => {
-    const React = require('react');
+  MockText.displayName = 'MockText';
+
+  const MockView = ({ children, style, ...props }) => {
     return React.createElement(
       'div',
       {
@@ -54,12 +60,14 @@ jest.mock('react-native', () => {
       children
     );
   };
+  MockView.displayName = 'MockView';
+
+  RN.Pressable = MockPressable;
+  RN.Text = MockText;
+  RN.View = MockView;
+
   return RN;
 });
-
-const React = require('react');
-const { render, fireEvent } = require('@testing-library/react-native');
-const TopScreen = require('../screens/TopScreen').default;
 
 describe('TopScreen', () => {
   beforeEach(() => {
@@ -67,30 +75,22 @@ describe('TopScreen', () => {
   });
 
   test('renders title correctly', () => {
-    const { getByText } = render(
-      React.createElement(TopScreen, { navigation: mockNavigation })
-    );
+    const { getByText } = render(<TopScreen navigation={mockNavigation} />);
     expect(getByText('今日なにする？')).toBeTruthy();
   });
 
   test('renders plan suggestion button correctly', () => {
-    const { getByText } = render(
-      React.createElement(TopScreen, { navigation: mockNavigation })
-    );
+    const { getByText } = render(<TopScreen navigation={mockNavigation} />);
     expect(getByText('プラン提案')).toBeTruthy();
   });
 
   test('renders subtitle correctly', () => {
-    const { getByText } = render(
-      React.createElement(TopScreen, { navigation: mockNavigation })
-    );
+    const { getByText } = render(<TopScreen navigation={mockNavigation} />);
     expect(getByText('今日のプランを提案します')).toBeTruthy();
   });
 
   test('navigates to PlanSuggestion screen when plan suggestion button is pressed', () => {
-    const { getByTestId } = render(
-      React.createElement(TopScreen, { navigation: mockNavigation })
-    );
+    const { getByTestId } = render(<TopScreen navigation={mockNavigation} />);
     const planButton = getByTestId('pressable');
     fireEvent.press(planButton);
     expect(mockNavigate).toHaveBeenCalledWith('PlanSuggestion');
@@ -98,9 +98,7 @@ describe('TopScreen', () => {
 
   test('logs message when plan suggestion button is pressed', () => {
     const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-    const { getByTestId } = render(
-      React.createElement(TopScreen, { navigation: mockNavigation })
-    );
+    const { getByTestId } = render(<TopScreen navigation={mockNavigation} />);
     const planButton = getByTestId('pressable');
     fireEvent.press(planButton);
     expect(consoleSpy).toHaveBeenCalledWith('プラン提案ボタンが押されました');
