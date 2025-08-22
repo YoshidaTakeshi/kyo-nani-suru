@@ -20,55 +20,6 @@ const mockNavigation = {
   getId: jest.fn(),
 };
 
-// Mock React Native components for testing
-jest.mock('react-native', () => {
-  const RN = jest.requireActual('react-native');
-
-  const MockPressable = ({ children, onPress, style, ...props }) => {
-    return React.createElement(
-      'div',
-      {
-        onClick: onPress,
-        style: Array.isArray(style) ? Object.assign({}, ...style) : style,
-        'data-testid': 'pressable',
-        ...props,
-      },
-      children
-    );
-  };
-  MockPressable.displayName = 'MockPressable';
-
-  const MockText = ({ children, style, ...props }) => {
-    return React.createElement(
-      'span',
-      {
-        style: Array.isArray(style) ? Object.assign({}, ...style) : style,
-        ...props,
-      },
-      children
-    );
-  };
-  MockText.displayName = 'MockText';
-
-  const MockView = ({ children, style, ...props }) => {
-    return React.createElement(
-      'div',
-      {
-        style: Array.isArray(style) ? Object.assign({}, ...style) : style,
-        ...props,
-      },
-      children
-    );
-  };
-  MockView.displayName = 'MockView';
-
-  RN.Pressable = MockPressable;
-  RN.Text = MockText;
-  RN.View = MockView;
-
-  return RN;
-});
-
 describe('TopScreen', () => {
   beforeEach(() => {
     mockNavigate.mockClear();
@@ -91,7 +42,7 @@ describe('TopScreen', () => {
 
   test('navigates to PlanSuggestion screen when plan suggestion button is pressed', () => {
     const { getByTestId } = render(<TopScreen navigation={mockNavigation} />);
-    const planButton = getByTestId('pressable');
+    const planButton = getByTestId('plan-suggestion-button');
     fireEvent.press(planButton);
     expect(mockNavigate).toHaveBeenCalledWith('PlanSuggestion');
   });
@@ -99,7 +50,7 @@ describe('TopScreen', () => {
   test('logs message when plan suggestion button is pressed', () => {
     const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
     const { getByTestId } = render(<TopScreen navigation={mockNavigation} />);
-    const planButton = getByTestId('pressable');
+    const planButton = getByTestId('plan-suggestion-button');
     fireEvent.press(planButton);
     expect(consoleSpy).toHaveBeenCalledWith('プラン提案ボタンが押されました');
     consoleSpy.mockRestore();
